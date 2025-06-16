@@ -42,6 +42,7 @@ Windows using MinGW:
 mkdir build
 cd build
 cmake .. -G "MinGW Makefiles"
+mingw32-make
 ```
 
 Linux:
