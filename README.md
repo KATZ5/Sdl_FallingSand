@@ -27,10 +27,16 @@ The repository contains everything required to compile and build the examples on
 
 Use the provided CMakeLists.txt with CMake to generate a build configuration for your favorite IDE or compiler, e.g.:
 
-Windows:
+Windows using Visual Studio:
 
 ```
 cmake -G "Visual Studio 14 2015 Win64"
+```
+
+Windows using MinGW:
+
+```
+cmake .. -G "MinGW Makefiles"
 ```
 
 Linux:

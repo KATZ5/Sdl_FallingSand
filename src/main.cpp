@@ -5,7 +5,7 @@
 
 const int window_w = 720, window_h = 720;
 bool kill = false;
-const float cellSize = 10.0;
+const float cellSize = 24.0;
 const int arraySize = window_w / cellSize;
 int gridArray[arraySize][arraySize];
 
@@ -68,7 +68,7 @@ void fillCell(SDL_Renderer *renderer, int gridArray[arraySize][arraySize]) {
   for (int i = 0; i < arraySize; i++) {
     for (int j = 0; j < arraySize; j++) {
       if (gridArray[i][j] == 1) {
-        SDL_SetRenderDrawColor(renderer, 250, 50, 100, 0);
+        SDL_SetRenderDrawColor(renderer, 194, 178, 128, 0);
         SDL_FRect cell = {j * cellSize, i * cellSize, cellSize, cellSize};
         SDL_RenderFillRect(renderer, &cell);
       }
