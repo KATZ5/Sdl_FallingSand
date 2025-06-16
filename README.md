@@ -10,6 +10,8 @@ There are submodule present in the repo so be sure to clone it recursively with 
 
 ```
 git clone --recursive https://github.com/KATZ5/Sdl_FallingSand.git
+cd Sdl_FallingSand
+mkdir build && cd build
 ```
 
 Updating submodules manually:
@@ -30,7 +32,7 @@ Use the provided CMakeLists.txt with CMake to generate a build configuration for
 Windows using Visual Studio:
 
 ```
-cmake -G "Visual Studio 14 2015 Win64"
+cmake .. -G "Visual Studio 14 2015 Win64"
 ```
 
 Windows using MinGW:
