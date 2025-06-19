@@ -1,12 +1,14 @@
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_events.h>
+#include <SDL3/SDL_keycode.h>
 #include <SDL3/SDL_stdinc.h>
 #include <SDL3/SDL_timer.h>
 #include <iostream>
 
-const int window_w = 720, window_h = 720;
+constexpr int window_w = 1000, window_h = 1000;
 bool kill = false;
-const float cellSize = 24.0;
-const int arraySize = window_w / cellSize;
+constexpr float cellSize = 1.0;
+constexpr int arraySize = window_w / cellSize;
 int gridArray[arraySize][arraySize];
 
 void drawCells(SDL_Renderer *renderer) {
@@ -107,7 +109,7 @@ int main() {
   }
 
   SDL_Renderer *renderer = SDL_CreateRenderer(window, NULL);
-  if (renderer == nullptr) {
+  if (renderer == NULL) {
     std::cerr << "Failed to create Renderer: " << SDL_GetError() << std::endl;
     SDL_DestroyWindow(window);
     SDL_Quit();
@@ -118,7 +120,9 @@ int main() {
   Uint32 startTime = SDL_GetTicks();
   int frameCount = 0;
   float fps = 0.0f;
-  const Uint32 tickInterval = 50;
+  const Uint32 tickInterval = 1;
+  bool pause = true;
+  bool draw = false;
 
   fillGrid(gridArray);
 
@@ -131,20 +135,31 @@ int main() {
         kill = true;
 
       case SDL_EVENT_MOUSE_BUTTON_DOWN:
+        std::cout << " " << std::endl;
+        //     printGridArray(gridArray);
 
-        printGridArray(gridArray);
+      case SDL_EVENT_KEY_DOWN:
+        if (event.key.key == SDLK_SPACE) {
+          pause = !pause;
+        } else if (event.key.key == SDLK_UP) {
+          draw = !draw;
+        }
       }
     }
     Uint32 currentUpdate = SDL_GetTicks();
     if (currentUpdate - lastUpdate > tickInterval) {
-      sandRules(gridArray);
+      if (pause == false) {
+        sandRules(gridArray);
+      }
+
       lastUpdate = currentUpdate;
     }
-
-    updateGridArray(gridArray);
+    if (draw == true) {
+      updateGridArray(gridArray);
+    }
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
-    drawCells(renderer);
+    //   drawCells(renderer);
     highlightCell(renderer);
     fillCell(renderer, gridArray);
     SDL_RenderPresent(renderer);
