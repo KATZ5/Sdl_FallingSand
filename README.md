@@ -2,7 +2,7 @@
 
 Falling sand implemented in sdl3
 
-<img src="./screenshorts/outpu.gif" width="644px">
+<img src="./screenshorts/output.gif" width="644px">
 
 ## CLONING
 
