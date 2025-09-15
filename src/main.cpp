@@ -5,9 +5,9 @@
 #include <SDL3/SDL_timer.h>
 #include <iostream>
 
-constexpr int window_w = 1000, window_h = 1000;
+constexpr int window_w = 100, window_h = 100;
 bool kill = false;
-constexpr float cellSize = 1.0;
+constexpr float cellSize = 5.0;
 constexpr int arraySize = window_w / cellSize;
 int gridArray[arraySize][arraySize];
 
