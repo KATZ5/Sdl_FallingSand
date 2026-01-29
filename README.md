@@ -4,6 +4,10 @@ Falling sand implemented in sdl3
 
 <img src="./screenshorts/output.gif" width="644px">
 
+## Play Instructions
+Up arrow to enable/disable draw mode
+spacebar to run/stop the simulation
+
 ## CLONING
 
 There are submodule present in the repo so be sure to clone it recursively with the following command:
