@@ -5,7 +5,7 @@ Falling sand implemented in sdl3
 <img src="./screenshorts/output.gif" width="644px">
 
 ## Play Instructions
-Up arrow to enable/disable draw mode
+Up arrow to enable/disable draw mode \n
 spacebar to run/stop the simulation
 
 ## CLONING
