@@ -159,6 +159,7 @@ int main() {
     }
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
+    //printGridArray(gridArray);
     //   drawCells(renderer);
     highlightCell(renderer);
     fillCell(renderer, gridArray);
